@@ -1,0 +1,20 @@
+#popover
+{
+	position:fixed;
+	top:5%;
+	margin: 10px auto;
+	width: 80%;
+	left: 10%;
+	height: 500px;
+	text-align:center;
+	border-radius: 25px;
+	box-shadow: 2px 2px 10px black;
+	padding: 10px;
+	background-color: white;
+	z-index:99999;
+	opacity:0;
+}
+body
+{
+	z-index:0;
+}

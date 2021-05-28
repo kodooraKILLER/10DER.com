@@ -237,19 +237,18 @@ echo '</select>
       <thead class="thead-dark">
         <th style="font-family: algerian">10der</th>
         <th style="font-family: algerian">Your Bid</th>
-        <th style="font-family: algerian">Your rank</th>
         <th style="font-family: algerian">Closing date</th>
         
       </thead>
       <?php
-	  $querypro='SELECT tender.title, tender.end, bid.bidder, bid.amount, RANK() OVER (PARTITION BY bid.tno ORDER BY bid.amount)rank FROM bid
+	  $querypro='SELECT tender.title, tender.end, bid.bidder, bid.amount FROM bid
             INNER JOIN tender
             ON tender.tno=bid.tno where 1 and bid.bidder="'.$user.'"';
 	  $resultpro=$conn->query($querypro);
 	  if($resultpro===false||mysqli_num_rows($resultpro)==0)
 			{
 				echo '<tr>
-        <td colspan="5"><h4 align="center"> Snap &#128557;, You havent fired up any 10der-bids yet, Click a 10der and shoot a bid ! </h4></td>
+        <td colspan="4"><h4 align="center"> Snap &#128557;, You havent fired up any 10der-bids yet, Click a 10der and shoot a bid ! </h4></td>
       </tr>';
 			}
 	  else
@@ -260,7 +259,6 @@ echo '</select>
 	  echo '<tr>
         <td><a href="#" style="font-family: Source Sans Pro">'.$rowpro["title"].'</a></td>
         <td style="padding-top: 20px">&#8377; '.$rowpro["amount"].'</td>
-        <td style="padding-top: 20px">'.$rowpro["rank"].'</td>
         <td style="padding-top: 20px">'.$rowpro["end"].'</td>
               </tr>';
 

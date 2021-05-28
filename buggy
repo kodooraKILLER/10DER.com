@@ -142,15 +142,7 @@ echo "<script>alert('NOT A VALID EMAIL')</script>";
 		{
 			
 				$insertquery="INSERT INTO $category(username,password, mobile, email) VALUES ('$user','$pass','$mobile','$email')";
-				if($flagdb!=2)
-		{
-			$iquery=$conn->query($insertquery);
-			$conn2->query($insertquery);
-		}
-		else
-		{
-			$iquery=$conn->query($insertquery);
-		}
+				$iquery=$conn->query($insertquery);
 				if($iquery)
 				{
 					echo "<script>alert('inserted successfully')</script>";

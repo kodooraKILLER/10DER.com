@@ -1,0 +1,189 @@
+body
+{
+	width: 100%;
+	height:80vh;
+  min-height: 100vh;
+	text-align: center;
+	font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+	
+}
+html {
+  height: 100vh;
+}
+article
+{
+	width: 95%;
+	margin: 0 auto;
+}
+.bid
+{
+	width: 90%;
+	text-align: justify;
+	border-radius:25px;
+	margin: 15px;
+	margin-bottom:25px;
+	padding: 10px;
+	
+	padding-left:30px;
+	box-shadow: 2px 2px 5px black;
+	
+}
+.bid:hover
+{
+	background-color: #11111;
+}
+sup
+{
+	margin: 7.5px;
+}
+ul
+{
+	list-style:none;
+}
+.sellerid
+{
+	color:#2874f0;
+	font-size:x-large;
+	
+}
+
+.rating
+{
+    border-radius: 25px;
+	background-color:#4f6863;
+	color:white;
+}
+#create_div
+{
+	position:fixed;
+	bottom: 360px;
+	right:2.5%;
+	
+ 
+  padding: 10px;
+}
+.bbb
+{
+	padding: 10px;
+	margin: 20px;
+	border-radius: 15px;
+	
+}
+#close
+{
+	margin: 20px;
+	position:absolute;
+	font-size:large;
+	top:0px;
+	right:0px;
+	background-color:red;
+	border-radius:10px;
+	color:white;
+}
+#step1,#step2
+{
+	border-radius:25px;
+	text-align:left;
+	padding: 20px;
+	width: 90%;
+}
+#ct1,#ct2
+{
+	margin:10px;
+	color:white;
+	background-color:green;
+	
+}
+#ct2{background-color:red;}
+#popover,#popover2
+{
+	position:fixed;
+	top:5%;
+	margin: 10px auto;
+	width: 80%;
+	left: 10%;
+	text-align:center;
+	border-radius: 25px;
+	box-shadow: 2px 2px 10px black;
+	padding: 10px;
+	background-color: white;
+	z-index:10;
+	opacity:0;
+}
+
+#dater
+{
+	text-align:right;
+}
+#popover2
+{
+	padding: 25px;
+min-width:400px;
+	border-radius: 5px;
+width:40%;
+height:80%;
+overflow:scroll;
+left:30%;
+text-align:justify;
+font-family:'times new  roman';
+}
+
+button
+{
+	padding: 5px;
+}
+
+button:hover{
+	outline: none;
+}
+button:focus{
+	outline:none;
+}
+#create
+{
+	font-size: x-large;
+	border-radius:25px;
+	background-color:black;
+	color:white;
+}
+.kn
+{
+	border-radius:25px;
+	background-color:#2874f0;
+	color:white;
+	margin-right: 20px;
+	float: right;
+	position: relative;
+	bottom: 20px;
+}
+
+.procure
+{
+	border-radius:25px;
+	background-color:#06A10B;
+	color:white;
+	
+}
+
+.shortlist
+{
+	border-radius:25px;
+	background-color:#FFD700;
+	color:white;
+}
+.price
+{
+	color:#fa292a;
+	font-size:x-large;
+}
+.subject
+{
+	color:#333333;
+	font-size:large;
+}
+.description
+{
+	color:#4f6863;
+	font-size:large;
+	display:block;
+}

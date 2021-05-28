@@ -1,0 +1,18 @@
+/*.column {
+  float: left;
+  margin:20px;
+  padiing:20px;
+}
+*/
+/*.left {
+  width: 75%;
+}
+
+.right {
+  width: 25%;
+}*/
+
+#con1{
+	background-color: yellow;
+	border:3px black solid ;
+}

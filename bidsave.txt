@@ -1,0 +1,1 @@
+create table bid ( bno int AUTO_INCREMENT PRIMARY KEY, amount int, description varchar(2000), subject varchar(200), tno int FOREIGN KEY  references tender(tno),, bidder int FOREIGN KEY references requester(username));
