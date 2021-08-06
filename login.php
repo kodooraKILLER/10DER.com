@@ -5,11 +5,14 @@ $_SESSION['user']='none';
 include("connection.php");
 if(isset($_COOKIE['user']))
 {
+	
 	$_SESSION['user']=$_COOKIE['user'];
 	if($_COOKIE['category']==="requester")
-	header('Location: RequesterBoard.php');
+	echo "<script type='text/javascript'>window.top.location='https://ten-der.azurewebsites.net/requesterboard.php';</script>";
+
 	else
-	header('Location: ProviderBoard.php');
+	echo "<script type='text/javascript'>window.top.location='https://ten-der.azurewebsites.net/providerboard.php';</script>";
+
 
 
 }
@@ -25,7 +28,7 @@ include("regex.php");
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width-device-width, initial-scale=1.8">
 	<meta http-equiv="X-UA-Compatible" content="ie-edge">
-	<title>10DER | Walk In</title>
+	<title>ten-der | Walk In</title>
 	<link rel="stylesheet" type="text/css" href="css/login.css">
 	
 	<link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
@@ -142,7 +145,7 @@ echo "<script>alert('NOT A VALID EMAIL')</script>";
 		{
 			
 				$insertquery="INSERT INTO $category(username,password, mobile, email) VALUES ('$user','$pass','$mobile','$email')";
-				if($flagdb!=2)
+				if(flagdb!=2)
 		{
 			$iquery=$conn->query($insertquery);
 			$conn2->query($insertquery);
@@ -153,17 +156,18 @@ echo "<script>alert('NOT A VALID EMAIL')</script>";
 		}
 				if($iquery)
 				{
-					echo "<script>alert('inserted successfully')</script>";
 					$_SESSION['user']=$user;
-					
+					echo "loading, please wait...";
 					#COOKIE EXPIRES IN 60*60 seconda= 1 Hour
 	  				if($category=="requester")
 					{
-						header('Location: RequesterBoard.php');
+						echo "<script type='text/javascript'>window.top.location='https://ten-der.azurewebsites.net/requesterboard.php';</script>";
+
 					}
 					else
 					{
-						header('Location: ProviderBoard.php');
+						echo "<script type='text/javascript'>window.top.location='https://ten-der.azurewebsites.net/providerboard.php';</script>";
+
 					
 					}
 				}
@@ -211,10 +215,11 @@ if(isset($_POST['login']))
 		$pass_decode=password_verify($lpassword,$db_pass);
 		if($pass_decode)
 		{
+			echo "loading, please wait...";
 			$_SESSION['user']=$luser;
+echo "<script type='text/javascript'>window.top.location='https://ten-der.azurewebsites.net/requesterboard.php';</script>";
 			
-						
-			header('Location: RequesterBoard.php');
+
 
 		}
 		else{
@@ -231,7 +236,9 @@ if(isset($_POST['login']))
 		{
 			#COOKIE EXPIRES IN 60*60 seconda= 1 Hour
 			$_SESSION['user']=$luser;
-	  		header('Location: ProviderBoard.php');
+			echo "loading, please wait...";
+			echo "<script type='text/javascript'>window.top.location='https://ten-der.azurewebsites.net/providerboard.php';</script>";
+
 
 		}
 		else 

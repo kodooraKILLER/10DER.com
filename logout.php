@@ -13,5 +13,7 @@ if (isset($_SERVER['HTTP_COOKIE'])) {
         setcookie($name, '', time()-1000, '/');
     }
 }
-header('Location: 10DER.php');
+echo "<script type='text/javascript'>window.top.location='https://ten-der.azurewebsites.net/10DER.php';</script>";
+
+//header('Location: 10DER.php');
 ?>

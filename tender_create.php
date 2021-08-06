@@ -28,11 +28,12 @@ if(isset($_POST['title'])&&isset($_SESSION['user'])&&($_SESSION['user']!='none')
 		if($vv>$v)
 			$status=0;
 	$sql = "INSERT INTO tender (title, aoi, start, end, status, creator, description,tandc) VALUES ('".$title."','".$aoi."','".$start."','".$end."',".$status.",'".$creator."','".$description."','".$tandc."')";
-	echo $sql;
+	
 	if ($conn->query($sql) === TRUE) 
-		echo "yes";
+		echo "<script> console.log('yes');</script>";
 	else 
 		echo "Error: " . $sql . "<br>" . $conn->error;
+	
 	}
 	
 }

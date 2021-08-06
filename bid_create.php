@@ -20,26 +20,14 @@ if(isset($_POST['tno'])&&isset($_SESSION['user'])&&($_SESSION['user']!='none'))
 	else
 	{
 
-		$sql = "INSERT INTO bid (tno, amount, bidder, subject, description) VALUES (".$tno.",".$amount.",'".$bidder."','".$subject."','".$description."')";
-		if($flagdb!=2)
-		{
-			$conn->query($sql);
-			$conn2->query($sql);
-		}
-		else
-		{
-			$conn->query($sql);
-		}
-
-		
-		
-		// if ($conn->query($sql) === TRUE) 
-		// 	echo "yes";
+	$sql = "INSERT INTO bid (tno, amount, bidder, subject, description) VALUES (".$tno.",".$amount.",'".$bidder."','".$subject."','".$description."')";
+	
+	if ($conn->query($sql) === TRUE) 
+		echo "yes";
 
 	
 	}
 	
 }
 else echo $_POST['amount'].$_POST['tno'].$_POST['bidder'];
-header('location: ProviderBoard.php');
 ?>

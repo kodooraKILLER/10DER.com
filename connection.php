@@ -22,18 +22,18 @@ if ($conn->connect_error) {
 */
 $flagdb=1;
 $conn=mysqli_init(); 
-mysqli_real_connect($conn, "ver1.mysql.database.azure.com", "kodooraKILLER@ver1", "V_innovate1t", "ver1", 3306);
+mysqli_real_connect($conn, "ver1.mysql.database.azure.com", "senthil@ver1", "V_innovate1t", "ver1", 3306);
 
 if ($conn->connect_error) {
 	$flagdb=2;
-	mysqli_real_connect($conn, "verseco.mysql.database.azure.com", "kodooraKILLER@verseco", "V_innovate1t", "ver1", 3306);
-//echo "error";
+	mysqli_real_connect($conn, "verseco.mysql.database.azure.com", "senthil@verseco", "V_innovate1t", "ver1", 3306);
 
 }
 else
 {
+	
 $conn2=mysqli_init(); 
-mysqli_real_connect($conn2, "verseco.mysql.database.azure.com", "kodooraKILLER@verseco", "V_innovate1t", "ver1", 3306);
+mysqli_real_connect($conn, "verseco.mysql.database.azure.com", "senthil@verseco", "V_innovate1t", "ver1", 3306);
 
 $flagdb=1;
 }

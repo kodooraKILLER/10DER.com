@@ -6,14 +6,53 @@ if(!isset($_SESSION))
     } 
 //IF USER DID NOT LOGIN IN LOCAL SYSTEM
 if(!$_SESSION['user'] or $_SESSION['user']=='none')
-	header('location: login.php');
+  echo "<script type='text/javascript'>window.top.location='https://ten-der.azurewebsites.net/login.php';</script>";
+
+	//header('location: login.php');
 
 include("connection.php");
 
 			setcookie ("user",$_SESSION['user'],time()+ 3600);
 	  		
 			setcookie ("category","requester",time()+ 3600);
-include("tender_create.php");
+		
+include("connection.php");
+
+if(isset($_POST['title'])&&isset($_SESSION['user'])&&($_SESSION['user']!='none'))
+{
+	$title=$_POST['title'];
+	$aoi=substr($_POST['categ'],0,3);
+	$start=$_POST['start'];
+	$end=$_POST['end'];
+	$status=1;
+	$creator=$_SESSION['user'];
+	$description=$_POST['description'];
+	$tandc=$_POST['tandc'];
+	if($start==""||$start=="0000-00-00")
+	{
+		;
+	}
+	else
+	{
+		
+		$v=date_create($end);
+		$vv=date_create();
+		if($vv>$v)
+			$status=0;
+	$sql = "INSERT INTO tender (title, aoi, start, end, status, creator, description,tandc) VALUES ('".$title."','".$aoi."','".$start."','".$end."',".$status.",'".$creator."','".$description."','".$tandc."')";
+	
+	if($flagdb!=2)
+    {
+      //$conn->query($sql);
+      $conn2->query($sql);
+    }
+	if ($conn->query($sql) === TRUE) 
+		echo "<script>console.log('done');</script>";
+	else 
+		echo "Error: " . $sql . "<br>" . $conn->error;
+	}
+	
+}
 ?>
 
 <style>
@@ -128,7 +167,7 @@ Yours sincerely
 </div>    
 
 <div id="popover" class="bg-light">
-<form id="create_tender" action="#" method="POST">
+<form id="create_tender" action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
 <button type="button" id="close">&#10005;</button>
 <br>
 <h2>Create a 10der..</h2>
@@ -183,7 +222,7 @@ echo '</select>';
 
 </div>
 
-<button id="s2" type="submit" class="btn bbb btn-primary">Done&nbsp;&#10003;</button>
+<input type="submit" value="Done">
 
 
 </div>
@@ -440,11 +479,10 @@ echo '<ul style="list-style: none;" ><li><div class="bid">
 <!-- Footer -->
 
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <script src=".\js\cboard.js"></script>
-<script src=".\js\rb_tender.js" type="text/javascript"></script>
 
 </body>
 </html>

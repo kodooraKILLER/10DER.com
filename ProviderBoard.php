@@ -8,8 +8,9 @@ if(!isset($_SESSION))
 $user=$_SESSION['user'];
 
 if(!$_SESSION['user'] or $_SESSION['user']=='none')
-	
-	header('location: login.php');
+	echo "<script type='text/javascript'>window.top.location='https://ten-der.azurewebsites.net/login.php';</script>";
+
+	//header('location: login.php');
 
 include("connection.php");
 
@@ -233,7 +234,6 @@ echo '</select>
       <col width="300">
       <col width="300">
       <col width="300">
-      <col width="300">
       <thead class="thead-dark">
         <th style="font-family: algerian">10der</th>
         <th style="font-family: algerian">Your Bid</th>
@@ -248,7 +248,7 @@ echo '</select>
 	  if($resultpro===false||mysqli_num_rows($resultpro)==0)
 			{
 				echo '<tr>
-        <td colspan="4"><h4 align="center"> Snap &#128557;, You havent fired up any 10der-bids yet, Click a 10der and shoot a bid ! </h4></td>
+        <td colspan="3"><h4 align="center"> Snap &#128557;, You havent fired up any 10der-bids yet, Click a 10der and shoot a bid ! </h4></td>
       </tr>';
 			}
 	  else

@@ -7,15 +7,7 @@ if(!isset($_SESSION))
 include("connection.php");
 
 $query='UPDATE provider SET aoi ="'.$aoi=substr($_POST['aoi'],0,3).'", bio ="'.$_POST['bio'].'" WHERE username="'.$_SESSION['user'].'"';
-if($flagdb!=2)
-{
-	$conn->query($query);
-	$conn2->query($query);
-}
-else
-{
-	$conn->query($query);
-}
-// $conn->query($query);
-header('location: ProviderBoard.php');
+$conn->query($query);
+echo "<script type='text/javascript'>window.top.location='https://ten-der.azurewebsites.net/providerboard.php';</script>";
+
 ?>
